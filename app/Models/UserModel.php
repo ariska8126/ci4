@@ -34,6 +34,11 @@ class UserModel extends Model
         }
     }
 
+    public function getUserByUname($uname)
+    {
+        return $this->where(['username' => $uname])->first();
+    }
+
     public function getIfExistEmsil()
     {
 
@@ -46,7 +51,7 @@ class UserModel extends Model
     public function verifyEmail($email)
     {
         $builder = $this->db->table('user');
-        $builder->select("username,password");
+        $builder->select("username,password,email");
         $builder->where('email', $email);
         $result = $builder->get();
 
@@ -61,7 +66,19 @@ class UserModel extends Model
     {
         $builder = $this->db->table('user');
         $builder->where('email', $uuid);
-        $builder->update(['update_at' => date('Y-m-d h:i:s')]);
+        $builder->update(['updated_at' => date('Y-m-d h:i:s')]);
+        if ($this->db->affectedRows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updatePassword($username, $password)
+    {
+        $builder = $this->db->table('user');
+        $builder->where('username', $username);
+        $builder->update(['password' => $password]);
         if ($this->db->affectedRows() == 1) {
             return true;
         } else {

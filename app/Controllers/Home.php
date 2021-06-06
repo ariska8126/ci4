@@ -9,7 +9,8 @@ class Home extends BaseController
 		return view('welcome_message');
 	}
 
-	public function tampilNama(){
+	public function tampilNama()
+	{
 		echo "hello world";
 	}
 }

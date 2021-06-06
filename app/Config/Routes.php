@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'Users::index');
+$routes->get('/sendmail', 'SendMail::index');
 // $routes->get('/resto', 'Resto::index');
 
 /*

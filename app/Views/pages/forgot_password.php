@@ -30,12 +30,12 @@
 
                                 <form method="POST" action="<?= base_url('ForgotPassword/olahForgotPassword'); ?>">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                        <input type="email" class="form-control form-control-user" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                     </div>
 
-                                    <div type="submit" class="button btn-success">
+                                    <button type="submit" class="button btn-success">
                                         Reset Password
-                                    </div>
+                                    </button>
 
                                 </form>
 
